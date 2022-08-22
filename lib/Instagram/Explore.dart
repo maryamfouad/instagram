@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/Instagram/data.dart';
 import 'Home.dart';
 import 'Profile.dart';
 
@@ -63,7 +64,12 @@ class _ExploreState extends State<Explore> {
               ),
               onTap: () {
                 Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Profile()));
+                    .push(MaterialPageRoute(builder: (context) => Profile(
+                  counter: counter,
+                  info: info,
+                  url0: url0,
+
+                )));
               },
             ),
           ),
@@ -74,8 +80,8 @@ class _ExploreState extends State<Explore> {
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                height: 30,
+                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 13),
+                height: 37,
                 width: double.infinity,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -106,11 +112,11 @@ class _ExploreState extends State<Explore> {
                 ),
                 child: GridView.count(
                   crossAxisCount: 3,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 3,
+                  crossAxisSpacing: 3,
                   scrollDirection: Axis.vertical,
                   children: [
-                    grid("images/1a.jpg"),
+                    grid(url),
                     grid("images/2a.jpg"),
                     grid("images/3a.jpg"),
                     grid("images/4a.jpg"),
@@ -147,7 +153,7 @@ class _ExploreState extends State<Explore> {
       height: 100,
       width: 100,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(7),
+          borderRadius: BorderRadius.circular(4),
           image: DecorationImage(fit: BoxFit.cover, image: AssetImage("$url"))),
     );
   }

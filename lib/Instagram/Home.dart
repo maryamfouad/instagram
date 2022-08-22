@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/Instagram/Explore.dart';
 import 'package:instagram/Instagram/Profile.dart';
-
+import 'package:instagram/Instagram/data.dart';
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -86,7 +86,11 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onTap: () {
                       Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => Profile()));
+                          MaterialPageRoute(builder: (context) => Profile(
+                            counter: counter,
+                            info: info,
+                            url0: url0,
+                          )));
                     })),
           ],
         ),
@@ -101,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       insta(
                           "https://cdn1.iconfinder.com/data/icons/avatars-1-5/136/87-512.png",
-                          "23_m"),
+                          "$userName"),
                       insta(
                           "https://cdn-icons-png.flaticon.com/512/219/219969.png",
                           "5p_g"),
@@ -188,7 +192,7 @@ class _HomePageState extends State<HomePage> {
   Container post(String url) {
     return Container(
       width: 200,
-      height: 500,
+      //height: 500,
       margin: EdgeInsets.all(5),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,

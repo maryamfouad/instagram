@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/Instagram/Explore.dart';
+import 'package:instagram/Instagram/data.dart';
 
 import 'Home.dart';
 
 class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
+  //لازم يكون تحت الكلاس الاول وليس الثاني
+ final String info ;
+   final int counter ;
+   final String url0;
+  Profile (
+      {
+        required this.info,
+        required this.counter,
+        required this.url0,
+      }
+      );
 
   @override
   _ProfileState createState() => _ProfileState();
@@ -12,6 +23,9 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   int SelectedInsex = 0;
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,7 +130,7 @@ class _ProfileState extends State<Profile> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  info("Photos", 53),
+                  info(widget.info,widget.counter ),
                   info("Followers", 123),
                   info("Following", 1000)
                 ],
@@ -152,8 +166,7 @@ class _ProfileState extends State<Profile> {
                         "https://i.insider.com/5a25b4ef3339b009268b45d3?width=700"),
                     grid(
                         "https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80"),
-                    grid(
-                        "https://media.istockphoto.com/photos/misty-blue-mountains-on-sunrise-picture-id613111906?k=20&m=613111906&s=612x612&w=0&h=V_zPi_4GBSDVWC1_LxDcw3lwVo1qkSoan2-7A2oiTO0="),
+                    grid(widget.url0 ),
                   ],
                 ),
               ),
